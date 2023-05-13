@@ -1,15 +1,18 @@
 import React from 'react';
-import "./all.css"
+
 function VehicleModel(props) {
-    const {fetchData} = props
+    const {modelVehicle, handleModel} = props
     return (
-        <div>
+        <div className='name-form text-white'>
             <form>
+                <h4>Select the Model?</h4>
                 {
-                    fetchData.map((val, i)=>{
-                        return(
-                            <>
-                            </>
+                    modelVehicle.map((val, i) => {
+                        return (
+                            <div class="form-check" >
+                                <input key={i} class="form-check-input" type="radio" id={val.model} value={val._id} onChange={handleModel}/>
+                                <label class="form-check-label" for={val.model}>{val.model}</label>
+                            </div>
                         )
                     })
                 }
